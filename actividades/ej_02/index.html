@@ -3,21 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad #</title>
+    <title>Actividad 2</title>
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/estilos.css">
+    <style>
+        /* Estilos adicionales para mejorar el formato de la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .led-control-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .button_slide {
+            background-color: #008CBA;
+            color: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button_slide:hover {
+            background-color: #005f6b;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .sonrisa {
+            width: 100px; /* Ajusta el tamaño según sea necesario */
+        }
+        .sensei, .mega, .brian {
+            width: 100%; /* Imagenes responsivas */
+            max-width: 400px; /* Tamaño máximo */
+            display: block;
+            margin: 10px auto; /* Centrar imagenes */
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Actividad #</h1>
+        <h1>Actividad 2</h1>
+        <h2>Por Santino Ferrante</h2> <!-- Nombre cambiado aquí -->
     </header>
     <main>
+       
+        <div class="led-control-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQAPwfXO68mITxhk2Y_QH9eEEB6YAe1J-9Dg&s" alt="Botones" class="mega">
+
+            <!-- Contenedor de los botones -->
+            <div id="outer">
+                <div class="button_slide" onclick="toggleLed(1)">LED1</div>
+                <div class="button_slide" onclick="toggleLed(2)">LED2</div>
+                <div class="button_slide" onclick="toggleLed(3)">LED3</div>
+            </div>
+        </div>
+
+        <script>
+            function toggleLed(led) {
+                fetch(`/toggle/led/${led}`);
+            }
+        </script>
+
+        <div>
+            <a href="images/arguell.jpeg" target="_blank">
+                <img src="https://s2.coinmarketcap.com/static/img/coins/200x200/24478.png" class="sonrisa" alt="sonrisa">
+            </a>
+            <p></p>
+        </div>
     </main>
     <footer>
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQFyqbSM9S_tcQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1713887902688?e=1735171200&v=beta&t=RW3wVkW_YQwwQ5rVi4HUmjDBJYrRnJ0t940ctpOI3cA" alt="Ferrante" class="brian">
         <p>Representación Frontal y Visual de Datos</p>
         <p>Computadoras de Aeronaves</p>
-        <p>Alumno XX</p>
+        <p>Alumno Santino Ferrante</p> <!-- Nombre cambiado aquí -->
         <p>Prof. Carlassara Fabrizio</p>
-        <p id="fecha"></p>
+        <p id="fecha">10/22/24</p>
     </footer>
     <script src="scripts/base.js"></script>
 </body>
