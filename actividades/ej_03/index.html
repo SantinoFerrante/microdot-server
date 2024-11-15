@@ -1,24 +1,116 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad #</title>
+    <title>Temperature Control</title>
     <link rel="stylesheet" href="styles/base.css">
+    <style>
+        /* Diseño minimalista */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            margin: 0 0 1rem;
+        }
+
+        #temperature-display,
+        #setpoint-input,
+        #buzzer-status {
+            margin: 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        input[type="number"] {
+            padding: 0.5rem;
+            font-size: 1rem;
+            margin-left: 0.5rem;
+            width: 80px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 0.3rem 0;
+        }
+
+        #setpoint-value, #temperature-value, #buzzer-state {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Actividad #</h1>
+        Actividad #3 - Temperature Control
     </header>
-    <main>
-    </main>
+    <div class="container">
+        <!-- Title -->
+        <h1>Temperature Control</h1>
+        
+        <!-- Temperature Display -->
+        <div id="temperature-display">
+            <strong>Temperature:</strong> <span id="temperature-value">--</span> °C
+        </div>
+
+        <!-- Setpoint Input -->
+        <label for="setpoint-input"><strong>Setpoint:</strong></label>
+        <input type="number" id="setpoint-input" min="0" max="100" value="25" oninput="updateSetpointValue(this.value)">
+        <span id="setpoint-value">25</span> °C
+        
+        <!-- Buzzer Status -->
+        <div id="buzzer-status">
+            <strong>Buzzer:</strong> <span id="buzzer-state">Off</span>
+        </div>
+    </div>
     <footer>
         <p>Representación Frontal y Visual de Datos</p>
         <p>Computadoras de Aeronaves</p>
-        <p>Alumno XX</p>
+        <p>Alumno: Santino Marco Ferrante</p>
         <p>Prof. Carlassara Fabrizio</p>
         <p id="fecha"></p>
     </footer>
-    <script src="scripts/base.js"></script>
+
+    <script>
+        // Función para actualizar el valor del setpoint en pantalla
+        function updateSetpointValue(value) {
+            document.getElementById('setpoint-value').textContent = value;
+        }
+
+        // Muestra la fecha actual en el pie de página
+        document.getElementById('fecha').textContent = 
+            `Fecha: ${new Date().toLocaleDateString()}`;
+    </script>
 </body>
 </html>
